@@ -1,0 +1,54 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.env
+*.env
+
+# Django specific
+*.log
+db.sqlite3
+/media/
+/staticfiles/
+/static/
+
+# Django migrations
+*/migrations/*
+!*/migrations/__init__.py
+
+# Ignore IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignore coverage reports
+htmlcov/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# Ignore Pytest cache
+.pytest_cache/
+
+# Ignore temporary files
+*.tmp
+*.bak
+*.old
+
+# Ignore node_modules (se tiver frontend no projeto)
+node_modules/
+
+# Ignore compiled files
+*.mo
+*.pot
+
+# Ignore secrets (exemplo: se usar settings localmente)
+settings_local.py
