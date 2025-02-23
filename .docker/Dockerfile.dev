@@ -1,0 +1,21 @@
+FROM python:3.11-slim as builder
+
+WORKDIR /app
+
+ENV PATH $PATH:/home/django/.local/bin
+
+COPY poetry.lock pyproject.toml ./
+
+RUN pip install poetry==2.1.0
+RUN poetry config virtualenvs.create false
+RUN poetry install --no-root
+
+COPY . .
+
+RUN useradd -ms /bin/bash django
+USER django
+
+EXPOSE 8000
+
+
+CMD ["gunicorn", "--reload", "--bind", "0.0.0.0:8000", "walletapi.wsgi:application"]

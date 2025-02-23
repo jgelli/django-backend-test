@@ -4,11 +4,19 @@
 To run this project, you need to have <a href="https://docs.docker.com/get-docker/" target="_blank" rel="noopener noreferrer">Docker</a> installed on your machine.
 
 ## Quick Start
+## Selecting Environment (dev/prod) via Makefile
+
+The project is configured to easily switch between development and production environments using a variable in the Makefile. By default, the environment is set to **dev**. If you need to use the production configuration, simply set the `ENVIRONMENT` variable to `prod` when executing commands.
+
 To start the project, you only need to run the following commands:
 
 1. **Start the containers:**
 ```sh
 make up
+```
+or
+```sh
+make up ENVIRONMENT=prod
 ```
 
 2. **Apply database migrations:**

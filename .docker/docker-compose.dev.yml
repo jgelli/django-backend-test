@@ -2,25 +2,27 @@ services:
     db:
         image: postgres:15
         env_file:
-            - .env
+            - ../.env
         volumes:
-            - pgdata:/var/lib/postgresql/data
+            - ../.pgdata:/var/lib/postgresql/data
         ports:
             - "5432:5432"
         networks:
             - walletapi-network
 
     api:
-        build: .
+        build: 
+            context: ..
+            dockerfile: .docker/Dockerfile.dev
         restart: always
         depends_on:
             - db
         env_file:
-            - .env
+            - ../.env
         ports:
             - "8000:8000"
         volumes:
-            - .:/app
+            - ../:/app
         networks:
             - walletapi-network
 
